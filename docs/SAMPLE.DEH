@@ -1,0 +1,221 @@
+Patch File for DeHackEd v3.0
+
+# The first line in any DeHackEd patch file must always be the one listed above.
+# Although the version number may change, the first line is used to tell if
+# this is actually a DeHackEd patch file or not.
+
+# Any line that starts with a '#' symbol is a comment line, and is ignored
+# when the patch file is loaded.
+
+# The next two lines are required so that DeHackEd knows what version of Doom
+# this patch was created with, and the format of the patch file.  They
+# should also be near the front of the patch file, before any of the 
+# actual patch information.
+
+Doom version = 21
+Patch format = 6
+
+# Now comes the actual patch information.  The information is divided into
+# sections according to what type of information it is.  For example, first
+# we start with the line "Thing 1 (Player)".  From then on until DeHackEd
+# reached another type of information (like Sprite or Text or something)
+# it considers everything to be related to Thing 1.  The info can be in any
+# order, although it's a wise idea to keep the Text strings at the end of
+# patch file, because it's very difficult for DeHackEd to recover from 
+# errors in the Text section.
+
+# So, first off there is a Thing with some information here.  The Thing 
+# happens to be Thing #1, and it's called a "Player" inside DeHackEd.  If
+# it turned out that Thing #1 didn't have any changes at all, but Thing #16
+# was the first one with changes, then the first Thing would be Thing #16.
+# The Thing name can now be edited, so if you want to name the Thing 
+# something totally wild and wacky, go right ahead.  Changing the name to
+#     Thing 1 (Small Red Frog)
+# would cause DeHackEd to give this Thing the name "Small Red Frog".  Go
+# wild.
+
+# Once we know what we're dealing with (Thing 1 in this case) there are
+# a number of different field names that can appear.  All of them are
+# shown in this example Thing, along with the correct names.  Only those
+# fields that are actually changed need appear, so something like
+#     Thing 1 (Player)
+#     First moving frame = 24
+# is perfectly valid.  Also note that you don't need the space on both
+# sides of the equals sign, it's just there for easier reading right now.
+#     First moving frame=24
+# would work just as well.
+
+Thing 1 (Small Red Frog)
+ID # = 1
+Initial frame = 16
+Hit points = 2
+First moving frame = 17
+Alert sound = 11
+Reaction time = 7
+Attack sound = 12
+Injury frame = 18
+Pain chance = 8
+Pain sound = 13
+Close attack frame = 19
+Far attack frame = 20
+Death frame = 21
+Exploding frame = 22
+Death sound = 14
+Speed = 3
+
+# Note the width and height are multiplied by 65536.  In this case the players
+# Width would be 262144 / 65536, which is a Width of 4, and a Height of
+# 327680 / 65536, which is 5.
+
+Width = 262144
+Height = 327680
+
+Mass = 9
+Missile damage = 6
+Action sound = 15
+Bits = 10
+Respawn frame = 23
+
+Thing 3 (Sargeant)
+ID # = 1
+Hit points = 2
+Speed = 3
+Missile damage = 4
+
+# Next we have Sounds.  These are done pretty much the same way as Things.
+# There is no specific name for any of the sounds, so nothing appears in
+# parentheses behind "Sound 1".  Note that there are 6 fields here that do
+# NOT appear in the Sound editing screen in DeHackEd, the "Zero ?" and
+# "Neg. One ?" fields.  Every sound always has zeros in the "Zero ?" fields
+# and -1 in the "Neg. One ?" fields, so I didn't bother putting them in
+# the sound editor.  You can put information into the patch files that
+# DeHackEd normally doesn't allow you to edit.  Of course, it probably will
+# accomplish nothing, otherwise I would have put that information into 
+# DeHackEd in the first place.  :)  Feel free to play around with it if you
+# wish, though.
+
+Sound 1
+Offset = 150368
+Zero/One = 1
+Value = 128
+Zero 1 = 14
+Zero 2 = 15
+Zero 3 = 16
+Zero 4 = 17
+Neg. One 1 = -18
+Neg. One 2 = -19
+
+# And here is the Frame layout.  Note once again that there are two unknowns
+# at the end that are not generally accessible through DeHackEd.  Also
+# note that the Action pointer (another name for the code pointer) has been
+# commented out.  That should no longer be changed manually... if it is,
+# bad things will almost certainly happen when the patch is loaded.
+
+Frame 0
+Sprite number = 1
+Sprite subnumber = 32770
+Duration = 4
+Next frame = 3
+#Action pointer = 72846
+Unknown 1 = 5
+Unknown 2 = 6
+
+# The Sprite information is always only two lines, since the Sprite info
+# only consists of one piece of information: an offset into the Text
+# section.
+
+Sprite 0
+Offset = 151336
+
+# Ammo is also pretty sparse, consisting only of the max ammo per item and
+# ammo per power-up.
+
+Ammo 1 (Shells)
+Max ammo = 2
+Per ammo = 3
+
+# The Weapon object, and its corresponding fields.  Again, not too difficult.
+
+Weapon 0 (Fists)
+Ammo type = 1
+Deselect frame = 4
+Select frame = 5
+Bobbing frame = 6
+Shooting frame = 7
+Firing frame = 8
+
+# These are the new code pointers.  The value after "Pointer" can range
+# anywhere from 0 through 447.  There is no easy way to tell which Frame
+# corresponds to which pointer, however, so it isn't a good idea to play
+# around with these manually.  The "Frame 2" in parenthesis is just for
+# reference purposes, and is not used.  And the value given on the next
+# line is the number of the Frame whose code pointer should be placed in
+# the code pointer we are editing (1 in this case).  This roundabout way
+# of storing things is necessary due to the complexities of code pointers
+# between every version of Doom.
+
+Pointer 1 (Frame 2)
+Codep Frame = 243
+
+# Here are the cheats.  They are just plain text.  Note that if you enter
+# too many characters (like more than 4 characters for "Map cheat") it
+# will get truncated to the maximum number of chars for that cheat.  Also
+# ignore the '0' that appears after "Cheat".  It's just used for consistency.
+
+Cheat 0
+Change music = rockÿ
+Chainsaw = bzzzzzzzz
+God mode = thorÿ
+Ammo & Keys = whoop
+Ammo = woop
+No Clipping 1 = clipme,ma!
+No Clipping 2 = clipio
+Invincibility = invinnyÿÿ
+Berserk = berserkyÿ
+Invisibility = invissyÿÿ
+Radiation Suit = radsuityÿ
+Auto-map = automappy
+Lite-Amp Goggles = liteampyÿ
+BEHOLD menu = beholdme
+Level Warp = gother
+Player Position = where??
+Map cheat = urps
+
+# The miscellaneous data.  Again, this is pretty basic stuff.  Beware of
+# the Monsters Infight data, however.  It can only have one of two
+# specific values, 202 or 221.  Anything else will mess stuff up bigtime.
+# Also, the BFG Ammo and Soulsphere Health items should lie in the range
+# of -128 through 127.
+
+Misc 0
+Initial Health = 1
+Initial Bullets = 2
+Max Health = 3
+Max Armor = 4
+Green Armor Class = 5
+Blue Armor Class = 6
+Max Soulsphere = 7
+Soulsphere Health = 8
+Megasphere Health = 9
+God Mode Health = 10
+IDFA Armor = 11
+IDFA Armor Class = 12
+IDKFA Armor = 13
+IDKFA Armor Class = 14
+BFG Cells/Shot = 15
+Monsters Infight = 221
+
+
+# And finally, the Text information.  This is a little tricky.  First of all
+# is the word "Text", to signal that (duh!) it's Text.  Next are two
+# integers.  The first one is the length of the first "original" text string,
+# and the second is the length of the second "replacement" text string.  The
+# DeHackEd basically just performs a search-and-replace of the text... it 
+# searches for the first text, and when it finds it DeHackEd inserts the second
+# text in its place. The strings had better be the correct length, or 
+# everything from then on gets screwed up pretty badly (likely DeHackEd will
+# abort loading the rest of the patch).
+
+Text 40 43
+CODEC: Passed all I/O port inspections.
+Yo, pal, all them I/O ports are CLEAN, man!

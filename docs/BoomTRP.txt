@@ -1,0 +1,56 @@
+The number before 'd' represents base damage and the number after 'd'
+represents random damage multiplier.
+
+Standard line attack (hitscan) damage functions.
+
+- Pistol/Shotgun/Chaingun/Shotgun2 5d3
+- PosAttack/SPosAttack/CPosAttack 3d5
+
+
+Melee only attack damage roll.
+
+- Punch/Saw 2d10
+- SkelFist 6d10
+- SargAttack 4d10
+
+
+Standard missile damage controlled by Thing's "damage" field,
+multiplied by a d8 randomizer, activated by "MISSILE" bitflag.
+
+- Tracer 10d8
+- FatShot 8d8
+- BruiserShot 8d8
+- Skull 3d8
+- SpawnShot 3d8
+- TroopShot 3d8
+- HeadShot 5d8
+- Rocket 20d8
+- Plasma 5d8
+- BFG 100d8
+- ArachPlaz 5d8
+
+
+Melee damage for when a ranger attacker Thing is close enough.
+Controlled by an internal function.
+
+- TroopAttack 3d8
+- HeadAttack 6d10
+- BruisAttack 8d10
+
+
+Things with an attack sound.
+
+- Possessed sfx_pistol
+- Sergeant sfx_sgtatk
+- Shadows sfx_sgtatk
+- Skull sfx_sklatk
+- Spider sfx_shotgn
+
+
+Doom 64 alternative damage rolls.
+
+- Punch/Saw 3d8
+- Pistol/Shotgun/Chaingun 4d4
+- PosAttack 3d8
+- BruisAttack 8d11
+- ArachPlaz 3d8

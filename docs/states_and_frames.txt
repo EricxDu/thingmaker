@@ -1,0 +1,48 @@
+Skeleton
+Run [ABCDEF]
+Fist [GHI]
+Missile [JK]
+Pain [L]
+
+Bug, Outcast, Outleader, Wargrin
+Run [ABCD]
+Ranged [EFG]
+Melee [HIJ]
+Pain [K]
+
+Fatso, Harubus
+Run [ABCDEF]
+Attack [GHI]
+Pain [J]
+
+Baby Spider
+Run [ABCDEF]
+Attack [GH]
+Pain [I]
+
+Bionic Monkey, Droid, Hindring, Stability Officer
+Boss, Boss 2, Troop, Sarge, Wolfenstein
+Run [ABCD]
+Attack [EFG]
+Pain [H]
+
+Enforcer, Ratman
+Chainguy, Cyborg, Player, Possessed, Shotguy
+Run [ABCD]
+Attack [EF]
+Pain [G]
+
+Grell, Pain
+Run [ABC]
+Attack [DEF]
+Pain [G]
+
+Head
+Run [A]
+Attack [BCD]
+Pain [EF]
+
+Skull
+Run [AB]
+Attack [CD]
+Pain [E]
